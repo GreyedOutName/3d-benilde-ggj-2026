@@ -1,7 +1,10 @@
 extends Node
 
-@export var dialogue_resource: DialogueResource
+func _ready() -> void:
+	DialogueManager.dialogue_ended.connect(end_dialogue)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		DialogueManager.show_dialogue_balloon(dialogue_resource,"start")
+func start_dialogue(dialogue_resource:DialogueResource, title: String ):
+	DialogueManager.show_dialogue_balloon(dialogue_resource,title)
+
+func end_dialogue(dialogue_resource:DialogueResource):
+	GlobalSignals.emit_signal("end_dialogue")

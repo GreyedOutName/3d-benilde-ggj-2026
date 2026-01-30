@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://hprsxppwnb0x"]
+
+[ext_resource type="Script" uid="uid://d3k6dqgjqhu00" path="res://Scripts/dialogue_handler.gd" id="1_pnwid"]
+[ext_resource type="Resource" uid="uid://bwsno6b1l4btl" path="res://Resources/Dialogue/test_dialogue.dialogue" id="2_xhvku"]
+
+[node name="dialogue_handler" type="Node" unique_id=783370779]
+script = ExtResource("1_pnwid")
+dialogue_resource = ExtResource("2_xhvku")

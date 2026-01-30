@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 GameSaveLoad="*res://Scripts/game_save_load.gd"
 
 DialogueManager="*uid://c3rodes2l3gxb"
+GlobalSignals="*uid://cbilrlm0u2t6m"
+EventHandler="*uid://n8helmvfcgax"
+GameSaveLoad="*res://Scripts/game_save_load.gd"
 
 [dialogue_manager]
 
@@ -29,9 +32,6 @@ runtime/balloon_path="res://Objects/dialogue_ballon_example/balloon.tscn"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
-[internationalization]
-
-locale/translations_pot_files=PackedStringArray("res://Resources/Dialogue/test_dialogue.dialogue")
 [input]
 
 move_left={
@@ -64,6 +64,10 @@ esc={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Resources/Dialogue/test_dialogue.dialogue")
 
 [physics]
 
