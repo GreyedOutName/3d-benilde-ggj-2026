@@ -1,11 +1,23 @@
+~ greetings
+% Nathan: HI 1
+% Nathan: HI 2
+% Nathan: HI 3
+=> start
 ~ start
 Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
 Nathan: Here are some choices.
 - First one
 	Nathan: You picked the first one.
+	do EventHandler.evidence_get(1,1)
+	=> evidence_test
 - Second one
 	Nathan: You picked the second one.
 - Start again => start
 - End the conversation => END
-Nathan: For more information see the online documentation.
+~ evidence_test
+if not false in EvidenceManager.Evidence_progress[1]:
+	Nathan: Sorry but not yet.
+else:
+	Nathan: HMMMM
+Nathan: Goodbye, test end.
 => END

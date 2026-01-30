@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bsm80tlddblor"]
+
+[ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu2.tscn" id="1_b3akx"]
+[ext_resource type="PackedScene" uid="uid://brtxvd8nie0rs" path="res://Objects/npc.tscn" id="1_wtmyw"]
+[ext_resource type="Resource" uid="uid://bwsno6b1l4btl" path="res://Resources/Dialogue/test_dialogue.dialogue" id="2_b3akx"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Objects/player.tscn" id="3_d3efv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.16078432, 0.4117647, 0.30980393, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0xm2m"]
+albedo_color = Color(0.39607844, 0.16470589, 0.03137255, 1)
+
+[node name="Main" type="Node3D" unique_id=206362355]
+
+[node name="PauseMenu" parent="." unique_id=145814170 instance=ExtResource("1_b3akx")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1038619741]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=268634871]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=333010651]
+transform = Transform3D(33.654114, 0, 0, 0, 0.40138853, 0, 0, 0, 54.750088, 0, 0.40138853, 0)
+use_collision = true
+material = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1638625999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8401489, 1.1032503, -0.16333008)
+use_collision = true
+size = Vector3(2.6802979, 0.91124725, 1.3266602)
+material = SubResource("ORMMaterial3D_0xm2m")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=704241776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022253275, 0.3475039, 0.024023533)
+operation = 2
+size = Vector3(2.2717743, 0.63934326, 1.0380859)
+
+[node name="NPC" parent="." unique_id=1871328436 instance=ExtResource("1_wtmyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.850165, 0.60208225, 0.47310257)
+dialogue_resource = ExtResource("2_b3akx")
+
+[node name="player" parent="." unique_id=1524182027 instance=ExtResource("3_d3efv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.919797, 0.6020813, 3.0230064)
