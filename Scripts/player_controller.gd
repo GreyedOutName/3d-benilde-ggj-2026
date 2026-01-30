@@ -22,7 +22,7 @@ extends CharacterBody3D
 ## Look around rotation speed.
 @export var look_speed : float = 0.002
 ## Normal speed.
-@export var base_speed : float = 7.0
+@export var base_speed : float = 4.0
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
@@ -60,9 +60,6 @@ var current_interactable : Node = null
 
 ## Dialogue state
 var in_dialogue : bool = false
-var current_dialogue_lines : Array[String] = []
-var current_dialogue_index : int = 0
-var current_speaker_name : String = ""
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
@@ -70,10 +67,6 @@ var current_speaker_name : String = ""
 @onready var interaction_ray: RayCast3D = $Head/InteractionRay
 @onready var crosshair_dot: Label = $UI/Crosshair/CrosshairDot
 @onready var interact_label: Label = $UI/Crosshair/InteractLabel
-@onready var dialogue_box: PanelContainer = $UI/DialogueBox
-@onready var speaker_label: Label = $UI/DialogueBox/MarginContainer/VBoxContainer/SpeakerLabel
-@onready var dialogue_label: Label = $UI/DialogueBox/MarginContainer/VBoxContainer/DialogueLabel
-@onready var continue_label: Label = $UI/DialogueBox/MarginContainer/VBoxContainer/ContinueLabel
 
 func _ready() -> void:
 	check_input_mappings()
@@ -84,9 +77,8 @@ func _ready() -> void:
 		interaction_ray.target_position = Vector3(0, 0, -interact_distance)
 	# Add player to group for NPC detection
 	add_to_group("player")
-	# Hide dialogue box at start
-	if dialogue_box:
-		dialogue_box.visible = false
+	GlobalSignals.end_dialogue.connect(_end_dialogue)
+	capture_mouse()
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -108,10 +100,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Handle interaction
 	if can_interact and Input.is_action_just_pressed(input_interact):
-		if in_dialogue:
-			advance_dialogue()
-		else:
-			try_interact()
+		try_interact()
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
@@ -226,7 +215,6 @@ func check_input_mappings():
 func check_interaction():
 	if not interaction_ray:
 		return
-	
 	# Skip raycast check if we already have an interactable from Area3D (like NPC)
 	# This prevents the raycast from overriding NPC interaction prompts
 	if current_interactable and current_interactable.is_in_group("npc"):
@@ -264,72 +252,16 @@ func show_interact_prompt():
 ## Try to interact with the current interactable object.
 func try_interact():
 	if current_interactable and current_interactable.has_method("interact"):
+		release_mouse()
 		current_interactable.interact()
 
-
-## Start a dialogue with the given lines.
-func start_dialogue(speaker_name: String, lines: Array[String]) -> void:
-	if lines.is_empty():
-		return
-	
-	in_dialogue = true
-	current_speaker_name = speaker_name
-	current_dialogue_lines = lines
-	current_dialogue_index = 0
-	
-	# Disable movement during dialogue
-	can_move = false
-	
-	# Show dialogue box
-	if dialogue_box:
-		dialogue_box.visible = true
-	
-	# Update dialogue text
-	update_dialogue_display()
-	
-	# Hide crosshair/interact label
-	if crosshair_dot:
-		crosshair_dot.visible = false
-	if interact_label:
-		interact_label.visible = false
-
-
-## Advance to the next dialogue line or end dialogue.
-func advance_dialogue() -> void:
-	current_dialogue_index += 1
-	
-	if current_dialogue_index >= current_dialogue_lines.size():
-		end_dialogue()
-	else:
-		update_dialogue_display()
-
-
-## Update the dialogue box display with current line.
-func update_dialogue_display() -> void:
-	if speaker_label:
-		speaker_label.text = current_speaker_name
-	if dialogue_label:
-		dialogue_label.text = current_dialogue_lines[current_dialogue_index]
-	if continue_label:
-		if current_dialogue_index < current_dialogue_lines.size() - 1:
-			continue_label.text = "[Press E to continue]"
-		else:
-			continue_label.text = "[Press E to close]"
-
-
+#ALL FUNCTIONS HERE CONNECT TO GLOBAL SIGNAL
 ## End the dialogue and restore player control.
-func end_dialogue() -> void:
+func _end_dialogue() -> void:
 	in_dialogue = false
-	current_dialogue_lines = []
-	current_dialogue_index = 0
-	current_speaker_name = ""
-	
 	# Re-enable movement
 	can_move = true
-	
-	# Hide dialogue box
-	if dialogue_box:
-		dialogue_box.visible = false
-	
 	# Show crosshair
 	show_crosshair()
+	# Capture Mouse Again
+	capture_mouse()

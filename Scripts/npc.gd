@@ -1,26 +1,20 @@
-# NPC.gd
-# Attach this script to an NPC with an Area3D child.
-# When the player enters the Area3D, they can interact with the NPC.
 
 extends Node3D
-class_name NPC
+class_name Interactable
 
 ## Signal emitted when the player enters the interaction area.
 signal player_entered
 ## Signal emitted when the player exits the interaction area.
 signal player_exited
-## Signal emitted when the NPC is interacted with.
-signal interacted
 
 ## The dialogue lines this NPC will say.
-@export var dialogue_lines : Array[String] = ["Hello there!", "How can I help you?"]
-## The name of this NPC (displayed in dialogue).
-@export var npc_name : String = "NPC"
+@export var dialogue_resource: DialogueResource
 ## Custom interact message shown to player.
 @export var interact_message : String = "Talk"
 
 ## Reference to the Area3D child node.
 @onready var interaction_area: Area3D = $Area3D
+@onready var dialog_handler: Node = $dialogue_handler
 
 var player_in_range : bool = false
 var player_ref : Node = null
@@ -69,13 +63,8 @@ func _on_body_exited(body: Node3D) -> void:
 		
 		player_ref = null
 
-
 ## Called when the player interacts with this NPC.
 func interact() -> void:
 	if player_in_range and player_ref:
-		print("Interacted with NPC: ", npc_name)
-		interacted.emit()
+		dialog_handler.start_dialogue(dialogue_resource,"greetings")
 		
-		# Open dialogue if player has the method
-		if player_ref.has_method("start_dialogue"):
-			player_ref.start_dialogue(npc_name, dialogue_lines)

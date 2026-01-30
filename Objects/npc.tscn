@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://ccq6ifet5wy6l"]
+[gd_scene format=3 uid="uid://brtxvd8nie0rs"]
+
+[ext_resource type="Script" uid="uid://bnnapkey0e4oe" path="res://Scripts/npc.gd" id="1_8dpm6"]
+[ext_resource type="PackedScene" uid="uid://hprsxppwnb0x" path="res://Nodes/dialogue_handler.tscn" id="2_gme65"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npc"]
 albedo_color = Color(0.6, 0.3, 0.8, 1)
@@ -10,6 +13,7 @@ material = SubResource("StandardMaterial3D_npc")
 size = Vector3(3, 3, 3)
 
 [node name="NPC" type="Node3D" unique_id=1457784907]
+script = ExtResource("1_8dpm6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1124178347]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -18,5 +22,7 @@ mesh = SubResource("CapsuleMesh_npc")
 [node name="Area3D" type="Area3D" parent="." unique_id=1997287502]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1805161710]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
 shape = SubResource("BoxShape3D_npc")
+
+[node name="dialogue_handler" parent="." unique_id=783370779 instance=ExtResource("2_gme65")]
