@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ccq6ifet5wy6l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npc"]
+albedo_color = Color(0.6, 0.3, 0.8, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_npc"]
+material = SubResource("StandardMaterial3D_npc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_npc"]
+size = Vector3(3, 3, 3)
+
+[node name="NPC" type="Node3D" unique_id=1457784907]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1124178347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_npc")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1997287502]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1805161710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_npc")
