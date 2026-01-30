@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ccq6ifet5wy6l" path="res://Objects/npc.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Player/player.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://bnnapkey0e4oe" path="res://Scripts/npc.gd" id="3_npc"]
+[ext_resource type="PackedScene" uid="uid://trcrixg3cpya" path="res://Levels/pause_menu.tscn" id="4_pause"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -21,9 +22,6 @@ glow_enabled = true
 vertex_color_is_srgb = true
 albedo_color = Color(0.16078432, 0.4117647, 0.30980393, 1)
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0xm2m"]
-albedo_color = Color(0.39607844, 0.16470589, 0.03137255, 1)
-
 [node name="Main" type="Node3D" unique_id=206362355]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1038619741]
@@ -38,16 +36,9 @@ transform = Transform3D(33.654114, 0, 0, 0, 0.40138853, 0, 0, 0, 54.750088, 0, 0
 use_collision = true
 material = SubResource("StandardMaterial3D_ig7tw")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1638625999]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8401489, 1.1032503, -0.16333008)
-use_collision = true
-size = Vector3(2.6802979, 0.91124725, 1.3266602)
-material = SubResource("ORMMaterial3D_0xm2m")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=415970644]
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=704241776]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022253275, 0.3475039, 0.024023533)
-operation = 2
-size = Vector3(2.2717743, 0.63934326, 1.0380859)
+[node name="PauseMenu" parent="CanvasLayer" unique_id=2067490045 instance=ExtResource("4_pause")]
 
 [node name="player" parent="." unique_id=1524182027 instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9504075, 0.6020827, 4.424628)
