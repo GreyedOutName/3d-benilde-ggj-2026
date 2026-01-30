@@ -20,6 +20,7 @@ GameSaveLoad="*res://Scripts/game_save_load.gd"
 DialogueManager="*uid://c3rodes2l3gxb"
 GlobalSignals="*uid://cbilrlm0u2t6m"
 EventHandler="*uid://n8helmvfcgax"
+EvidenceManager="*uid://h36mrm2eujum"
 
 [dialogue_manager]
 

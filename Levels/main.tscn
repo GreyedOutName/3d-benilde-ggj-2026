@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu.tscn" id="1_b3akx"]
 [ext_resource type="PackedScene" uid="uid://brtxvd8nie0rs" path="res://Objects/npc.tscn" id="1_wtmyw"]
+[ext_resource type="PackedScene" uid="uid://dsl6f1nol80jc" path="res://Objects/evidence_menu.tscn" id="2_7pswh"]
 [ext_resource type="Resource" uid="uid://bwsno6b1l4btl" path="res://Resources/Dialogue/test_dialogue.dialogue" id="2_b3akx"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Objects/player.tscn" id="3_d3efv"]
 
@@ -28,6 +29,8 @@ albedo_color = Color(0.39607844, 0.16470589, 0.03137255, 1)
 [node name="Main" type="Node3D" unique_id=206362355]
 
 [node name="PauseMenu" parent="." unique_id=145814170 instance=ExtResource("1_b3akx")]
+
+[node name="EvidenceMenu" parent="." unique_id=1035409026 instance=ExtResource("2_7pswh")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1038619741]
 environment = SubResource("Environment_1bvp3")
