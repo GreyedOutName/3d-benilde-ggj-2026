@@ -8,14 +8,21 @@ Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
 Nathan: Here are some choices.
 - First one
 	Nathan: You picked the first one.
-	do EventHandler.evidence_get(1,1)
+	do EventHandler.evidence_get(1,0)
 	=> evidence_test
 - Second one
 	Nathan: You picked the second one.
+	do EventHandler.evidence_get(1,1)
+- Third one
+	Nathan: You picked the second one.
+	do EventHandler.evidence_get(1,2)
+- Fourth one
+	Nathan: You picked the second one.
+	do EventHandler.evidence_get(1,3)
 - Start again => start
 - End the conversation => END
 ~ evidence_test
-if not false in EvidenceManager.Evidence_progress[1]:
+if not EvidenceManager.Evidence_progress[1].has(0):
 	Nathan: Sorry but not yet.
 else:
 	Nathan: HMMMM
