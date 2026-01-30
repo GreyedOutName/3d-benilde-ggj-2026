@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 DialogueManager="*uid://c3rodes2l3gxb"
 GlobalSignals="*uid://cbilrlm0u2t6m"
+EventHandler="*uid://n8helmvfcgax"
 
 [dialogue_manager]
 

@@ -247,12 +247,17 @@ func show_interact_prompt():
 		crosshair_dot.visible = false
 	if interact_label:
 		interact_label.visible = true
+		
+func hide_crosshair():
+	crosshair_dot.visible = false
+	interact_label.visible = false
 
 
 ## Try to interact with the current interactable object.
 func try_interact():
 	if current_interactable and current_interactable.has_method("interact"):
 		release_mouse()
+		hide_crosshair()
 		current_interactable.interact()
 
 #ALL FUNCTIONS HERE CONNECT TO GLOBAL SIGNAL

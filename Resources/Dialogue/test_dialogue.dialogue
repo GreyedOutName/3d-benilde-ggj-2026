@@ -8,7 +8,7 @@ Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
 Nathan: Here are some choices.
 - First one
 	Nathan: You picked the first one.
-	do EvidenceHandler.evidence_get()
+	do EventHandler.evidence_get()
 - Second one
 	Nathan: You picked the second one.
 - Start again => start

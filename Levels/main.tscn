@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://b4duljbqq8n8i"]
 
-[ext_resource type="Script" uid="uid://dhpbtbcwecl0h" path="res://Scripts/BaseScene.gd" id="1_7pswh"]
 [ext_resource type="PackedScene" uid="uid://brtxvd8nie0rs" path="res://Objects/npc.tscn" id="1_lwy2l"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Objects/player.tscn" id="3_7pswh"]
 [ext_resource type="Resource" uid="uid://bwsno6b1l4btl" path="res://Resources/Dialogue/test_dialogue.dialogue" id="3_nj2yk"]
-[ext_resource type="PackedScene" uid="uid://2wardywqdrkt" path="res://Nodes/evidence_handler.tscn" id="4_nj2yk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,7 +25,6 @@ albedo_color = Color(0.16078432, 0.4117647, 0.30980393, 1)
 albedo_color = Color(0.39607844, 0.16470589, 0.03137255, 1)
 
 [node name="Main" type="Node3D" unique_id=206362355]
-script = ExtResource("1_7pswh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1038619741]
 environment = SubResource("Environment_1bvp3")
@@ -59,5 +56,3 @@ dialogue_resource = ExtResource("3_nj2yk")
 [node name="player2" parent="." unique_id=1524182027 instance=ExtResource("3_7pswh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.55896413, 4)
 can_jump = false
-
-[node name="EvidenceHandler" parent="." unique_id=1438727225 instance=ExtResource("4_nj2yk")]
