@@ -19,6 +19,19 @@ config/icon="res://icon.svg"
 
 GameSaveLoad="*res://Scripts/game_save_load.gd"
 
+DialogueManager="*uid://c3rodes2l3gxb"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://Objects/dialogue_ballon_example/balloon.tscn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Resources/Dialogue/test_dialogue.dialogue")
 [input]
 
 move_left={
