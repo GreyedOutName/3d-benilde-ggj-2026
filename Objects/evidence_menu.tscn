@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://dsl6f1nol80jc"]
 
-[node name="EvidenceMenu" type="CanvasLayer" unique_id=1035409026]
+[ext_resource type="Script" uid="uid://64vumjtxgtdd" path="res://Scripts/evidence_menu.gd" id="1_0c7fg"]
 
-[node name="Control" type="Control" parent="." unique_id=541958980]
+[node name="EvidenceMenu" type="CanvasLayer" unique_id=1035409026]
+layer = 10
+script = ExtResource("1_0c7fg")
+
+[node name="evidence_select" type="Control" parent="." unique_id=541958980]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1266968321]
+[node name="MarginContainer" type="MarginContainer" parent="evidence_select" unique_id=1266968321]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -21,20 +25,33 @@ offset_bottom = -153.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer" unique_id=351750672]
+[node name="PanelContainer" type="PanelContainer" parent="evidence_select/MarginContainer" unique_id=351750672]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer" unique_id=1676314450]
+[node name="VBoxContainer" type="VBoxContainer" parent="evidence_select/MarginContainer/PanelContainer" unique_id=1676314450]
 layout_mode = 2
-alignment = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=769156514]
+[node name="RichTextLabel" type="RichTextLabel" parent="evidence_select/MarginContainer/PanelContainer/VBoxContainer" unique_id=769156514]
 layout_mode = 2
 text = "sdfasdfafsdaf
 "
 fit_content = true
 
-[node name="ItemList" type="ItemList" parent="Control/MarginContainer/PanelContainer" unique_id=2075281017]
+[node name="show_button_container" type="Control" parent="." unique_id=677152905]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="show_button_container" unique_id=319000450]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="show_button" type="Button" parent="show_button_container/MarginContainer" unique_id=1428836062]
 layout_mode = 2
-auto_width = true
-auto_height = true
+text = "View Case File"
+
+[connection signal="button_up" from="show_button_container/MarginContainer/show_button" to="." method="_on_show_button_button_up"]

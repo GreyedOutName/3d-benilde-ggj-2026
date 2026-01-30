@@ -2,4 +2,4 @@
 extends Node
 
 signal end_dialogue()
-signal evidence_get()
+signal show_evidence_screen()

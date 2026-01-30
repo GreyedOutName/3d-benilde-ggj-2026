@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://trcrixg3cpya"]
+[gd_scene format=3 uid="uid://le22nwymt13w"]
 
-[ext_resource type="Shader" uid="uid://cclacojgeho5i" path="res://Levels/pause_menu.gdshader" id="1_oda3r"]
-[ext_resource type="Script" uid="uid://b7hh4h77ntxto" path="res://Scripts/pause_menu.gd" id="1_pause"]
+[ext_resource type="Script" uid="uid://b7hh4h77ntxto" path="res://Scripts/pause_menu.gd" id="1_j1dcf"]
+[ext_resource type="Shader" uid="uid://cclacojgeho5i" path="res://Levels/pause_menu.gdshader" id="2_wdchn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mek05"]
-shader = ExtResource("1_oda3r")
+shader = ExtResource("2_wdchn")
 shader_parameter/lod = 0.0
 
 [sub_resource type="Animation" id="Animation_oda3r"]
@@ -66,7 +66,10 @@ _data = {
 &"blur": SubResource("Animation_nhmly")
 }
 
-[node name="PauseMenu" type="Control" unique_id=2067490045]
+[node name="PauseMenu" type="CanvasLayer" unique_id=145814170]
+layer = 100
+
+[node name="PauseMenu" type="Control" parent="." unique_id=2067490045]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -74,9 +77,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pause")
+script = ExtResource("1_j1dcf")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1929022896]
+[node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=1929022896]
 material = SubResource("ShaderMaterial_mek05")
 layout_mode = 1
 anchors_preset = 15
@@ -85,43 +88,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2046079772]
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu" unique_id=2046079772]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 448.0
-offset_top = 192.0
-offset_right = 704.0
-offset_bottom = 448.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1017366026]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer" unique_id=1017366026]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=150324677]
+[node name="Label" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=150324677]
 layout_mode = 2
 text = "PAUSED"
 horizontal_alignment = 1
 
-[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=488537398]
+[node name="Resume" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=488537398]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Resume"
 
-[node name="Main Menu" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1188790481]
+[node name="Main Menu" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=1188790481]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Main Menu"
 
-[node name="Quit Game" type="Button" parent="PanelContainer/VBoxContainer" unique_id=376248652]
+[node name="Quit Game" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=376248652]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Quit"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=938819191]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PauseMenu" unique_id=938819191]
 libraries/ = SubResource("AnimationLibrary_mek05")
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/Main Menu" to="PauseMenu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/Quit Game" to="PauseMenu" method="_on_quit_game_pressed"]

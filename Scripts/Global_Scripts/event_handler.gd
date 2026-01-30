@@ -1,4 +1,4 @@
-class_name EvidenceHandler extends Node
+extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,5 +8,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func evidence_get() -> void:
-	print("ITS THAT EASY?")
+func evidence_get(evidence_index:int,word_index:int) -> void:
+	print("Still works")
+	GlobalSignals.emit_signal("show_evidence_screen")
+	EvidenceManager.Evidence_progress[evidence_index][word_index]=1
