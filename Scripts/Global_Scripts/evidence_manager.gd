@@ -13,14 +13,6 @@ var Evidences:Dictionary ={
 	10:["The mansion","was never theirs"]#2
 }
 
-var Inventory_State:Dictionary ={
-	"Poison Bottle":false,
-	"Key":false,
-	"Will":false,
-	"Ring":false,
-	"Note":false,
-}
-
 var Evidence_progress:Dictionary={
 	1:[0,0],
 	2:[0,0,0],
@@ -62,4 +54,12 @@ var ending_progress:Dictionary = {
 	6:["0","0"],
 	7:["0","0"],
 	8:["0","0"],
+}
+
+var Inventory_State:Dictionary ={
+	"Poison Bottle":false,
+	"Key":false,
+	"Will":false,
+	"Ring":false,
+	"Note":false,
 }
