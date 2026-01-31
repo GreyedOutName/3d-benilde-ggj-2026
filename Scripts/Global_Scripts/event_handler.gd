@@ -5,7 +5,7 @@ func _ready() -> void:
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func evidence_get(evidence_index:int,word_index:int) -> void:

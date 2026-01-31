@@ -2,17 +2,34 @@
 
 [ext_resource type="Script" uid="uid://b7hh4h77ntxto" path="res://Scripts/pause_menu.gd" id="1_j1dcf"]
 [ext_resource type="Shader" uid="uid://cclacojgeho5i" path="res://Levels/pause_menu.gdshader" id="2_wdchn"]
+[ext_resource type="Theme" uid="uid://0jr8e3io765s" path="res://Resources/UI/Theme and Stylebox/menu_button.tres" id="3_mek05"]
+[ext_resource type="Theme" uid="uid://bs7nan3wahwyy" path="res://Resources/UI/Theme and Stylebox/small_title.tres" id="4_fkhs8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mek05"]
 shader = ExtResource("2_wdchn")
 shader_parameter/lod = 0.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkhs8"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_gwbay"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_fkhs8")
+
 [sub_resource type="Animation" id="Animation_oda3r"]
-length = 0.36666667
+length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("BlurBackground:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,13 +56,13 @@ length = 0.3
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("BlurBackground:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 3, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -79,7 +96,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j1dcf")
 
-[node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=1929022896]
+[node name="BlurBackground" type="ColorRect" parent="PauseMenu" unique_id=1929022896]
 material = SubResource("ShaderMaterial_mek05")
 layout_mode = 1
 anchors_preset = 15
@@ -87,6 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="PanelContainer" type="PanelContainer" parent="PauseMenu" unique_id=2046079772]
 modulate = Color(1, 1, 1, 0)
@@ -102,13 +120,16 @@ offset_right = 128.0
 offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_gwbay")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer" unique_id=1017366026]
 layout_mode = 2
+theme = ExtResource("3_mek05")
 
 [node name="Label" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=150324677]
 layout_mode = 2
-text = "PAUSED"
+theme = ExtResource("4_fkhs8")
+text = "Paused"
 horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=488537398]

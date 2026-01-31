@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dg8kqt02wdc73"]
+
+[node name="LightingTest" type="Node3D" unique_id=1458180345]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1734205258]
+transform = Transform3D(30.971693, 0, 0, 0, 1, 0, 0, 0, 31.201468, 0, -1.252475, 0)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=219342000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.1176858, 3.9848166, 0.7368231, -0.20298505)
+size = Vector3(0.4248047, 3.1020508, 5.462097)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1242112643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.765697, -9.478344, 0.6807673, -0.8447002)
+size = Vector3(0.4248047, 3.1020508, 9.582275)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1408600400]
+transform = Transform3D(-0.0055326377, 0, -3.117638, 0, 1, 0, 0.9999847, 0, -0.017249025, -3.1143603, 0.5659752, -8.515697)
+size = Vector3(0.4248047, 3.1020508, 5.462097)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1683982763]
+transform = Transform3D(-0.009267598, 0, 3.117552, 0, 1, 0, -0.9999571, 0, -0.02889346, -3.3172603, 0.8695903, 5.9442406)
+size = Vector3(0.4248047, 3.1020508, 5.462097)
+
+[node name="Floor2" type="CSGBox3D" parent="." unique_id=474788834]
+transform = Transform3D(17.385502, 0, 0, 0, 0.38756195, 0, 0, 0, 17.514482, 0.15296602, 2.1228378, -0.61187947)
+use_collision = true
+size = Vector3(0.6425781, 1, 1)

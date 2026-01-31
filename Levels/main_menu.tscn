@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://g3ripqsm6ymm"]
 
+[ext_resource type="Theme" uid="uid://cwgop7g63arha" path="res://Resources/UI/Theme and Stylebox/title.tres" id="1_jy27m"]
+[ext_resource type="Theme" uid="uid://0jr8e3io765s" path="res://Resources/UI/Theme and Stylebox/menu_button.tres" id="2_3es34"]
+
 [sub_resource type="GDScript" id="GDScript_351dl"]
 script/source = "extends Node2D
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://main.tscn\")
+	get_tree().change_scene_to_file(\"res://Levels/main.tscn\")
 
 
 func _on_load_game_pressed() -> void:
@@ -19,34 +22,44 @@ func _on_quit_pressed() -> void:
 [node name="MainMenu" type="Node2D" unique_id=1203021763]
 script = SubResource("GDScript_351dl")
 
+[node name="Label" type="Label" parent="." unique_id=1861710631]
+offset_left = 144.0
+offset_top = 240.0
+offset_right = 1018.0
+offset_bottom = 361.0
+size_flags_horizontal = 4
+theme = ExtResource("1_jy27m")
+text = "Masks of Reflection"
+
 [node name="ButtonManager" type="Control" parent="." unique_id=1379552341]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("2_3es34")
 
 [node name="Start" type="Button" parent="ButtonManager" unique_id=920819383]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 256.0
-offset_right = 712.0
-offset_bottom = 320.0
+offset_left = 448.0
+offset_top = 384.0
+offset_right = 704.0
+offset_bottom = 434.0
 text = "Start"
 
 [node name="Load Game" type="Button" parent="ButtonManager" unique_id=219379716]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 344.0
-offset_right = 712.0
-offset_bottom = 408.0
+offset_left = 448.0
+offset_top = 448.0
+offset_right = 704.0
+offset_bottom = 498.0
 text = "Load Game"
 
 [node name="Quit" type="Button" parent="ButtonManager" unique_id=1494280208]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 432.0
-offset_right = 712.0
-offset_bottom = 496.0
+offset_left = 448.0
+offset_top = 512.0
+offset_right = 704.0
+offset_bottom = 562.0
 text = "Quit"
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
