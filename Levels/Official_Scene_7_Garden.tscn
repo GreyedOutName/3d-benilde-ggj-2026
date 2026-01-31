@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://elbw841k3ugl"]
+
+[ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_e1eed"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r65hf"]
+albedo_color = Color(0.19, 1, 0.3114999, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1eed"]
+albedo_color = Color(0.87100744, 0, 0.030051686, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qj4ag"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akpte"]
+albedo_color = Color(0.2934675, 0.3455578, 0.9327342, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35imi"]
+albedo_color = Color(0.87100744, 0, 0.030051686, 1)
+
+[node name="OfficialScene3Study" type="Node3D" unique_id=1821590595]
+
+[node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_e1eed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.238429, 1.1399784, -5.5608177)
+
+[node name="BasicGeometry" type="Node" parent="." unique_id=905959728]
+
+[node name="Ground" type="CSGBox3D" parent="BasicGeometry" unique_id=1669614246]
+use_collision = true
+size = Vector3(60, 2, 98)
+
+[node name="wall3" type="CSGBox3D" parent="BasicGeometry" unique_id=1789587401]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -30, 4.6, 0)
+use_collision = true
+size = Vector3(98, 9, 1)
+
+[node name="wall4" type="CSGBox3D" parent="BasicGeometry" unique_id=1408065556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -49)
+use_collision = true
+size = Vector3(60, 9, 1)
+
+[node name="Roof" type="CSGBox3D" parent="BasicGeometry" unique_id=1916418618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+visible = false
+use_collision = true
+size = Vector3(42, 2, 70)
+
+[node name="Pathway1" type="CSGBox3D" parent="BasicGeometry" unique_id=1398196086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7273064, 0.7274227, 0)
+size = Vector3(1, 1, 100)
+material = SubResource("StandardMaterial3D_r65hf")
+
+[node name="Pathway2" type="CSGBox3D" parent="BasicGeometry" unique_id=254851666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.924223, 0.7274227, 0)
+size = Vector3(1, 1, 100)
+material = SubResource("StandardMaterial3D_r65hf")
+
+[node name="HouseGeometry" type="Node" parent="." unique_id=178820281]
+
+[node name="Door4" type="CSGBox3D" parent="HouseGeometry" unique_id=982477946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.913, 48.348)
+size = Vector3(7, 12, 1)
+material = SubResource("StandardMaterial3D_e1eed")
+
+[node name="Door5" type="CSGBox3D" parent="HouseGeometry" unique_id=628340823]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.51041, 6.913, -30.3381)
+size = Vector3(7, 12, 1)
+material = SubResource("StandardMaterial3D_e1eed")
+
+[node name="Furniture" type="Node" parent="." unique_id=1134302094]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Furniture" unique_id=716304278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.416171, 8.950703, -29.596802)
+radius = 6.519
+height = 16.0
+material = SubResource("StandardMaterial3D_qj4ag")
+
+[node name="HouseGeometry2" type="Node" parent="." unique_id=2101572760]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="HouseGeometry2" unique_id=809504465]
+
+[node name="Wall" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D" unique_id=1290593613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 48.843307)
+size = Vector3(60, 36, 1)
+
+[node name="Roof" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D" unique_id=1039816564]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 37.627514, 49.682716)
+size = Vector3(60, 12, 4)
+
+[node name="Roof2" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D" unique_id=2121700649]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 20.187275, 53.428223)
+size = Vector3(60, 12, 2)
+
+[node name="Pillar" type="CSGCylinder3D" parent="HouseGeometry2/CSGCombiner3D" unique_id=503400223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.05435, 17.551052, 51.922173)
+radius = 7.0
+height = 36.0
+material = SubResource("StandardMaterial3D_akpte")
+
+[node name="Pillar2" type="CSGCylinder3D" parent="HouseGeometry2/CSGCombiner3D" unique_id=762323762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.389519, 17.551, 51.921715)
+radius = 7.0
+height = 36.0
+material = SubResource("StandardMaterial3D_akpte")
+
+[node name="Window4" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D" unique_id=2010192712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.513105, 11.51, 48.126846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_35imi")
+
+[node name="Window6" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D" unique_id=2045041848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.44665, 11.51, 48.126846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_35imi")
+
+[node name="Window10" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D" unique_id=1177758323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.513105, 28.286264, 48.126846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_35imi")
+
+[node name="Window12" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D" unique_id=388538945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.44665, 28.286264, 48.126846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_35imi")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="HouseGeometry2" unique_id=1163257110]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20.494267, 0, 18.712643)
+
+[node name="Wall" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=1252849998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.190496, 18, 50.863228)
+size = Vector3(98, 36, 1)
+
+[node name="Roof" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=231876974]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 22.803839, 37.627514, 51.70263)
+size = Vector3(105.226685, 12, 4)
+
+[node name="Roof2" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=662724192]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 19.190496, 20.187275, 55.448143)
+size = Vector3(98, 12, 2)
+
+[node name="Pillar" type="CSGCylinder3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=1204345583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.551, 51.922)
+radius = 7.0
+height = 36.0
+material = SubResource("StandardMaterial3D_akpte")
+
+[node name="Window4" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=945846100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.513105, 11.51, 48.126846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_35imi")
+
+[node name="Window6" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=1241409896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.44665, 11.51, 48.126846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_35imi")
+
+[node name="Window10" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=1223444013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.513105, 28.286264, 48.126846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_35imi")
+
+[node name="Window12" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=350036555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.44665, 28.286264, 48.126846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_35imi")
+
+[node name="Pillar2" type="CSGCylinder3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=51201544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.714146, 17.551, 51.922)
+radius = 7.0
+height = 36.0
+material = SubResource("StandardMaterial3D_akpte")
+
+[node name="Window11" type="CSGBox3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=768750623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.037247, 28.286264, 48.126846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_35imi")
+
+[node name="Pillar3" type="CSGCylinder3D" parent="HouseGeometry2/CSGCombiner3D2" unique_id=662314544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.35469, 17.551, 51.922005)
+radius = 7.0
+height = 36.0
+material = SubResource("StandardMaterial3D_akpte")
