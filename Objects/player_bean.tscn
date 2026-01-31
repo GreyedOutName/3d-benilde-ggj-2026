@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
-[ext_resource type="Script" uid="uid://bgg5oxfoqrg4i" path="res://Scripts/player_controller.gd" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://bgg5oxfoqrg4i" path="res://Scripts/player_controller.gd" id="1_icp1e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -14,7 +14,7 @@ radius = 0.4
 height = 1.8
 
 [node name="player" type="CharacterBody3D" unique_id=1524182027]
-script = ExtResource("1_l8h54")
+script = ExtResource("1_icp1e")
 input_left = "move_left"
 input_right = "move_right"
 input_forward = "move_up"
