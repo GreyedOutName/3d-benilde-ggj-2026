@@ -66,11 +66,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InteractLabel" type="Label" parent="UI/Crosshair" unique_id=-2023158901]
-visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
-theme_override_font_sizes/font_size = 18
-text = "Interact"
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
+text = "Interact [E]"
 horizontal_alignment = 1
 vertical_alignment = 1
