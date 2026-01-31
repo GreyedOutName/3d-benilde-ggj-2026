@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://bbq6eye5jn67"]
+
+[sub_resource type="FontVariation" id="FontVariation_r7cud"]
+spacing_glyph = 2
+spacing_space = 5
+
+[resource]
+default_font = SubResource("FontVariation_r7cud")
+default_font_size = 30

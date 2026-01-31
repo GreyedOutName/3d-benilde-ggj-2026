@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dngrr7m3sev1o" path="res://Objects/dialogue_ballon_example/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="FontFile" uid="uid://co7j22oxrhs4e" path="res://Resources/UI/Jacquard12-Regular.ttf" id="2_gn2e3"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Theme" uid="uid://bbq6eye5jn67" path="res://Resources/UI/Theme and Stylebox/subtitle.tres" id="3_bgpmn"]
+[ext_resource type="Theme" uid="uid://sj4pacqakolk" path="res://Resources/UI/Theme and Stylebox/response_button.tres" id="6_fueoj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -124,6 +127,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer" unique_id=1844347297]
+self_modulate = Color(0.8210343, 0.647805, 0, 1)
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
@@ -143,6 +147,10 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.9663158, 0.7643579, 0, 1)
+theme_override_constants/outline_size = -1
+theme_override_fonts/normal_font = ExtResource("2_gn2e3")
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -152,6 +160,9 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_bgpmn")
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 25
 text = "Dialogue..."
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=232664569]
@@ -170,17 +181,14 @@ autoplay = &"progress"
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" unique_id=171130051 node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -290.5
-offset_top = -35.0
-offset_right = 290.5
-offset_bottom = 35.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -608.0
+offset_top = 192.0
+offset_right = -27.0
+offset_bottom = 262.0
+grow_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/separation = 2
 alignment = 1
@@ -189,6 +197,8 @@ response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=1196618740]
 layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("6_fueoj")
 text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1841337302]
