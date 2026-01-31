@@ -66,5 +66,5 @@ func _on_body_exited(body: Node3D) -> void:
 ## Called when the player interacts with this NPC.
 func interact() -> void:
 	if player_in_range and player_ref:
-		dialog_handler.start_dialogue(dialogue_resource,"greetings")
+		dialog_handler.start_dialogue(dialogue_resource,"start")
 		
