@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://dsgffn5q3isks"]
+
+[ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_5oieq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pltax"]
+albedo_color = Color(0.87100744, 0, 0.030051686, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5oieq"]
+albedo_color = Color(0, 0.87, 0.07249993, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mme07"]
+albedo_color = Color(0.21924424, 0.79421383, 1.540184e-06, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kili5"]
+albedo_color = Color(0.35400003, 1, 0.32, 1)
+
+[node name="OfficialScene3Study" type="Node3D" unique_id=1821590595]
+
+[node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_5oieq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.79776, 1.1399784, 10.345442)
+
+[node name="BasicGeometry" type="Node" parent="." unique_id=905959728]
+
+[node name="Ground" type="CSGBox3D" parent="BasicGeometry" unique_id=1669614246]
+use_collision = true
+size = Vector3(42, 2, 70)
+
+[node name="wall" type="CSGBox3D" parent="BasicGeometry" unique_id=589981583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 35)
+use_collision = true
+size = Vector3(42, 18, 1)
+
+[node name="wall2" type="CSGBox3D" parent="BasicGeometry" unique_id=1830823516]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21, 9, 0)
+use_collision = true
+size = Vector3(70, 18, 1)
+
+[node name="wall3" type="CSGBox3D" parent="BasicGeometry" unique_id=1789587401]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21, 9, 0)
+use_collision = true
+size = Vector3(70, 18, 1)
+
+[node name="wall4" type="CSGBox3D" parent="BasicGeometry" unique_id=1408065556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -35)
+use_collision = true
+size = Vector3(42, 18, 1)
+
+[node name="Roof" type="CSGBox3D" parent="BasicGeometry" unique_id=1916418618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+visible = false
+use_collision = true
+size = Vector3(42, 2, 70)
+
+[node name="HouseGeometry" type="Node" parent="." unique_id=178820281]
+
+[node name="Door2" type="CSGBox3D" parent="HouseGeometry" unique_id=390104470]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.244797, 6.913, 20)
+size = Vector3(7, 12, 1)
+material = SubResource("StandardMaterial3D_pltax")
+
+[node name="Door3" type="CSGBox3D" parent="HouseGeometry" unique_id=492870092]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.244797, 6.913, -18)
+size = Vector3(7, 12, 1)
+material = SubResource("StandardMaterial3D_pltax")
+
+[node name="Door4" type="CSGBox3D" parent="HouseGeometry" unique_id=1725614096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.859267, 6.913, -33.61624)
+size = Vector3(7, 12, 1)
+material = SubResource("StandardMaterial3D_pltax")
+
+[node name="Window" type="CSGBox3D" parent="HouseGeometry" unique_id=1280167485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.563293, 10.347652, 34.36626)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_5oieq")
+
+[node name="Window2" type="CSGBox3D" parent="HouseGeometry" unique_id=610132303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.971867, 10.347652, 34.36626)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_5oieq")
+
+[node name="Furniture" type="Node" parent="." unique_id=1134302094]
+
+[node name="Shelf" type="CSGBox3D" parent="Furniture" unique_id=1537702203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.959, 9, 18)
+size = Vector3(4, 18, 20)
+material = SubResource("StandardMaterial3D_mme07")
+
+[node name="Shelf2" type="CSGBox3D" parent="Furniture" unique_id=1718042397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.959, 9, -8)
+size = Vector3(4, 18, 20)
+material = SubResource("StandardMaterial3D_mme07")
+
+[node name="Table" type="CSGBox3D" parent="Furniture" unique_id=1999855630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.521488, 3, 6.3028193)
+size = Vector3(8, 5, 20)
+material = SubResource("StandardMaterial3D_mme07")
+
+[node name="Shelf3" type="CSGBox3D" parent="Furniture" unique_id=341149230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4853897, 9, 18)
+size = Vector3(4, 18, 20)
+material = SubResource("StandardMaterial3D_mme07")
+
+[node name="Shelf4" type="CSGBox3D" parent="Furniture" unique_id=1502447653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4853897, 9, -8)
+size = Vector3(4, 18, 20)
+material = SubResource("StandardMaterial3D_mme07")
+
+[node name="cabinet" type="CSGBox3D" parent="Furniture" unique_id=1989759343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.25218, 3.5, 4.100893)
+size = Vector3(5, 7, 8)
+material = SubResource("StandardMaterial3D_kili5")

@@ -1,0 +1,15 @@
+~ start
+Mr. Bean: Hi there Allen.
+Mr. Bean: Figga
+- Change evidence 2, first word
+	Nathan: You picked the first one.
+	do EventHandler.evidence_get(2,1)
+- Change evidence 2, second word
+	Nathan: You picked the second one.
+	do EventHandler.evidence_get(2,2)
+- Change evidence 2, third word
+	Nathan: You picked the second one.
+	do EventHandler.evidence_get(2,3)
+- End the conversation => END
+Nathan: Bye.
+=> END

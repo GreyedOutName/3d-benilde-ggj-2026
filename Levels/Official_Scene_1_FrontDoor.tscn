@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dmpdoa0yn5t3y"]
+
+[ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_q42p8"]
+[ext_resource type="PackedScene" uid="uid://b8w5b6qlyxqp1" path="res://ImportMesh/FrontDoor/FrontDoor.glb" id="2_mag7p"]
+
+[node name="OfficialScene1FrontDoor" type="Node3D" unique_id=201221471]
+
+[node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_q42p8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007898331, 1.9785604, -32.994865)
+
+[node name="FrontDoor" parent="." unique_id=1640853784 instance=ExtResource("2_mag7p")]
