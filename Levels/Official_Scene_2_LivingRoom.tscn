@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://chfelwcgwtn2g"]
+
+[ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_536u3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_536u3"]
+albedo_color = Color(0.87100744, 0, 0.030051686, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0t11"]
+albedo_color = Color(0, 0.87, 0.07249993, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mmli"]
+albedo_color = Color(0.87100744, 0, 0.030051686, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mudca"]
+albedo_color = Color(0.70516855, 0.5362762, 0.034222696, 1)
+
+[node name="OfficialScene2LivingRoom" type="Node3D" unique_id=1170453821]
+
+[node name="BasicGeometry" type="Node" parent="." unique_id=1048973790]
+
+[node name="Ground" type="CSGBox3D" parent="BasicGeometry" unique_id=1727700513]
+use_collision = true
+size = Vector3(56, 2, 70)
+
+[node name="wall" type="CSGBox3D" parent="BasicGeometry" unique_id=1433347968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 35)
+use_collision = true
+size = Vector3(56, 18, 1)
+
+[node name="wall2" type="CSGBox3D" parent="BasicGeometry" unique_id=249747758]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28, 9, 0)
+use_collision = true
+size = Vector3(70, 18, 1)
+
+[node name="wall3" type="CSGBox3D" parent="BasicGeometry" unique_id=1441592798]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -28, 9, 0)
+use_collision = true
+size = Vector3(70, 18, 1)
+
+[node name="wall4" type="CSGBox3D" parent="BasicGeometry" unique_id=759796744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -35)
+use_collision = true
+size = Vector3(56, 18, 1)
+
+[node name="Roof" type="CSGBox3D" parent="BasicGeometry" unique_id=1243469309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+use_collision = true
+size = Vector3(56, 2, 70)
+
+[node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_536u3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.990869, 1.021317, 31.850353)
+
+[node name="HouseGeometry" type="Node" parent="." unique_id=1692694301]
+
+[node name="Door" type="CSGBox3D" parent="HouseGeometry" unique_id=2094274643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 34)
+size = Vector3(14, 19.005, 1)
+material = SubResource("StandardMaterial3D_536u3")
+
+[node name="Window" type="CSGBox3D" parent="HouseGeometry" unique_id=805185152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.986902, 10.347652, 33.846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_r0t11")
+
+[node name="Window2" type="CSGBox3D" parent="HouseGeometry" unique_id=279250862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.987, 10.347652, 33.846)
+size = Vector3(6, 9, 1)
+material = SubResource("StandardMaterial3D_r0t11")
+
+[node name="Door2" type="CSGBox3D" parent="HouseGeometry" unique_id=1781426662]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.321, 6.913, 20)
+size = Vector3(7, 12, 1)
+material = SubResource("StandardMaterial3D_7mmli")
+
+[node name="Door3" type="CSGBox3D" parent="HouseGeometry" unique_id=610192209]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.321, 6.913, -18)
+size = Vector3(7, 12, 1)
+material = SubResource("StandardMaterial3D_7mmli")
+
+[node name="Door4" type="CSGBox3D" parent="HouseGeometry" unique_id=1940290951]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -27.321, 6.913, 20)
+size = Vector3(7, 12, 1)
+material = SubResource("StandardMaterial3D_7mmli")
+
+[node name="Door5" type="CSGBox3D" parent="HouseGeometry" unique_id=985068459]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -27.321, 6.913, -18)
+size = Vector3(7, 12, 1)
+material = SubResource("StandardMaterial3D_7mmli")
+
+[node name="Stairs2" type="CSGBox3D" parent="HouseGeometry" unique_id=980695388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 9, -30)
+size = Vector3(21, 18, 10)
+material = SubResource("StandardMaterial3D_mudca")
