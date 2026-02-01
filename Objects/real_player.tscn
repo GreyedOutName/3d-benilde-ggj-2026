@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://44d0atkgocpr"]
 
 [ext_resource type="Script" uid="uid://bgg5oxfoqrg4i" path="res://Scripts/player_controller.gd" id="1_xy3dy"]
+[ext_resource type="Shader" uid="uid://r1blvup30fta" path="res://Resources/pixelization.gdshader" id="2_qvjtn"]
 [ext_resource type="PackedScene" uid="uid://eot67sn8sc12" path="res://ImportMesh/leave_this_be.glb" id="2_xy3dy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pixel"]
+shader = ExtResource("2_qvjtn")
+shader_parameter/pixel_size = 4.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0k3e"]
 radius = 0.818
@@ -26,6 +31,15 @@ target_position = Vector3(0, 0, -10)
 collision_mask = 0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1938475062]
+
+[node name="PixelFilter" type="ColorRect" parent="UI" unique_id=384990794]
+material = SubResource("ShaderMaterial_pixel")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Crosshair" type="CenterContainer" parent="UI" unique_id=2049586173]
 anchors_preset = 8
