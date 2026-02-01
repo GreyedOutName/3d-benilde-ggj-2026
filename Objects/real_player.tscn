@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bgg5oxfoqrg4i" path="res://Scripts/player_controller.gd" id="1_xy3dy"]
 [ext_resource type="Shader" uid="uid://r1blvup30fta" path="res://Resources/pixelization.gdshader" id="2_qvjtn"]
 [ext_resource type="PackedScene" uid="uid://eot67sn8sc12" path="res://ImportMesh/leave_this_be.glb" id="2_xy3dy"]
+[ext_resource type="AudioStream" uid="uid://c7i2xdlft5xjv" path="res://Resources/walking_sound.mp3" id="4_d0k3e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pixel"]
 shader = ExtResource("2_qvjtn")
@@ -78,3 +79,9 @@ shape = SubResource("CapsuleShape3D_d0k3e")
 
 [node name="leave_this_be" parent="." unique_id=1819775504 instance=ExtResource("2_xy3dy")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=10578875]
+stream = ExtResource("4_d0k3e")
+volume_db = 6.465
+max_db = 6.0
+max_distance = 20.0
