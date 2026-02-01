@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_hgqr4"]
 [ext_resource type="PackedScene" uid="uid://hhp4wi2yoewy" path="res://ImportMesh/SecondFloor/SecondFloor.glb" id="2_wagl6"]
+[ext_resource type="PackedScene" uid="uid://co1ldhqi0gf05" path="res://Objects/invisible_door.tscn" id="3_1g0cv"]
+[ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu.tscn" id="4_pause"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_536u3"]
 albedo_color = Color(0.87100744, 0, 0.030051686, 1)
@@ -24,7 +26,8 @@ albedo_color = Color(0.28750014, 0.25, 1, 1)
 [node name="OfficialScene2LivingRoom" type="Node3D" unique_id=1170453821]
 
 [node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_hgqr4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.785717, 4.7526927, 13.711159)
+transform = Transform3D(-0.8322638, 0, 0.55437976, 0, 1, 0, -0.55437976, 0, -0.8322638, -4.731783, 2.3694797, -29.186558)
+base_speed = 20.0
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1887900213]
 visible = false
@@ -95,6 +98,7 @@ size = Vector3(21, 18, 10)
 material = SubResource("StandardMaterial3D_mudca")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1244987076]
+visible = false
 
 [node name="cabinet" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1489811428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.083612, 3.5, 4.100893)
@@ -107,7 +111,7 @@ size = Vector3(5, 7, 8)
 material = SubResource("StandardMaterial3D_5uvyj")
 
 [node name="carpet" type="CSGBox3D" parent="CSGCombiner3D" unique_id=567297524]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 8.518971)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33676988, 8.518971)
 size = Vector3(32, 1, 40)
 material = SubResource("StandardMaterial3D_5uvyj")
 
@@ -122,3 +126,23 @@ size = Vector3(5, 7, 8)
 material = SubResource("StandardMaterial3D_5uvyj")
 
 [node name="SecondFloor" parent="." unique_id=821942022 instance=ExtResource("2_wagl6")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SecondFloor" unique_id=2118181671]
+transform = Transform3D(0.082773365, 0, -0.99656844, -0.05799153, -0.9983055, -0.0048166835, -0.99487966, 0.058191225, -0.08263311, -5.432176, 24.431614, 9.8545475)
+light_color = Color(1, 0.9607843, 0.7137255, 1)
+light_energy = 10.407
+light_size = 0.181
+omni_range = 31.361614
+
+[node name="InvisibleDoor" parent="." unique_id=857000136 instance=ExtResource("3_1g0cv")]
+transform = Transform3D(-1.4590102, 0, -7.5095053, 0, 11.451679, 0, 18.588272, 0, -0.589428, 6.4999905, 8.501351, -33.707413)
+target_scene = "uid://chfelwcgwtn2g"
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=138469887]
+transform = Transform3D(0.082773365, 0, -0.99656844, -0.05799153, -0.9983055, -0.0048166835, -0.99487966, 0.058191225, -0.08263311, 2.8495831, 20.925406, -29.024141)
+light_color = Color(0.9923132, 0.7274181, 0.5900502, 1)
+light_energy = 10.407
+light_size = 0.181
+omni_range = 31.361614
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_pause")]

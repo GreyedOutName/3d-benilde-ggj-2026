@@ -52,6 +52,18 @@ extends CharacterBody3D
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
+@export_group("Footsteps")
+## Time between footstep sounds when walking.
+@export var footstep_interval : float = 0.4
+## Time between footstep sounds when sprinting.
+@export var footstep_sprint_interval : float = 0.25
+## Minimum pitch for footstep sounds.
+@export var footstep_pitch_min : float = 0.85
+## Maximum pitch for footstep sounds.
+@export var footstep_pitch_max : float = 1.15
+## Volume of footstep sounds in dB.
+@export var footstep_volume : float = -5.0
+
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
@@ -61,8 +73,13 @@ var current_interactable : Node = null
 ## Dialogue state
 var in_dialogue : bool = false
 
+## Footstep state
+var footstep_timer : float = 0.0
+var rng : RandomNumberGenerator = RandomNumberGenerator.new()
+
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
+@onready var footstep_player: AudioStreamPlayer3D = $FootstepPlayer
 @onready var collider: CollisionShape3D = $Collider
 @onready var interaction_ray: RayCast3D = $Head/InteractionRay
 @onready var crosshair_dot: Label = $UI/Crosshair/CrosshairDot
@@ -144,6 +161,9 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 	
+	# Handle footstep sounds
+	handle_footsteps(delta)
+	
 	# Check for interactable objects
 	if can_interact:
 		check_interaction()
@@ -209,6 +229,40 @@ func check_input_mappings():
 	if can_interact and not InputMap.has_action(input_interact):
 		push_warning("No InputAction found for input_interact: " + input_interact + ". Using 'ui_accept' as fallback.")
 		input_interact = "ui_accept"
+
+
+## Handle footstep sounds when walking.
+func handle_footsteps(delta: float) -> void:
+	if not footstep_player:
+		return
+	
+	# Check if player is moving on the ground
+	var horizontal_velocity := Vector2(velocity.x, velocity.z)
+	var is_moving := horizontal_velocity.length() > 0.5 and is_on_floor()
+	
+	if is_moving:
+		footstep_timer -= delta
+		if footstep_timer <= 0.0:
+			play_footstep()
+			# Set interval based on sprinting or walking
+			if can_sprint and Input.is_action_pressed(input_sprint):
+				footstep_timer = footstep_sprint_interval
+			else:
+				footstep_timer = footstep_interval
+	else:
+		# Stop sound and reset timer when not moving
+		if footstep_player.playing:
+			footstep_player.stop()
+		footstep_timer = 0.0
+
+
+## Play a footstep sound with random pitch.
+func play_footstep() -> void:
+	if footstep_player and footstep_player.stream:
+		# Randomize pitch for variety
+		footstep_player.pitch_scale = rng.randf_range(footstep_pitch_min, footstep_pitch_max)
+		footstep_player.volume_db = footstep_volume
+		footstep_player.play()
 
 
 ## Check if we're looking at an interactable object and update UI accordingly.
