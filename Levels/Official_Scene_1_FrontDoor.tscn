@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dsl6f1nol80jc" path="res://Objects/evidence_menu.tscn" id="2_3i3po"]
 [ext_resource type="PackedScene" uid="uid://b8w5b6qlyxqp1" path="res://ImportMesh/FrontDoor/FrontDoor.glb" id="2_mag7p"]
 [ext_resource type="PackedScene" uid="uid://co1ldhqi0gf05" path="res://Objects/invisible_door.tscn" id="4_0kdx7"]
+[ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu.tscn" id="5_pause"]
 [ext_resource type="PackedScene" uid="uid://x65u22tikipl" path="res://Objects/Butler.tscn" id="5_7r2cr"]
 [ext_resource type="Resource" uid="uid://ddtfyovr3x73u" path="res://Resources/Dialogue/Butler1.dialogue" id="6_snl8k"]
 
@@ -72,6 +73,7 @@ size = Vector3(1.0216064, 1, 1)
 transform = Transform3D(15.950132, 0, 0, 0, 9.967469, 0, 0, 0, 8.811678, -1.8810315, 9.7200165, 44.850563)
 target_scene = "uid://chfelwcgwtn2g"
 
+[node name="PauseMenu" parent="." instance=ExtResource("5_pause")]
 [node name="Butler" parent="." unique_id=1457784907 instance=ExtResource("5_7r2cr")]
 transform = Transform3D(-0.7123691, 0, -0.70180506, 0, 1, 0, 0.70180506, 0, -0.7123691, 7.5211315, 2.012601, 38.23149)
 dialogue_resource = ExtResource("6_snl8k")
