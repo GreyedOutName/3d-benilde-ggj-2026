@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://chfelwcgwtn2g"]
 
-[ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu.tscn" id="1_4vrom"]
 [ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_536u3"]
 [ext_resource type="PackedScene" uid="uid://dsl6f1nol80jc" path="res://Objects/evidence_menu.tscn" id="2_4hfbm"]
 [ext_resource type="PackedScene" uid="uid://e25vuoj7ldrm" path="res://ImportMesh/Living Room/LivingRoom.glb" id="2_r0t11"]
 [ext_resource type="PackedScene" uid="uid://co1ldhqi0gf05" path="res://Objects/invisible_door.tscn" id="3_7mmli"]
-[ext_resource type="PackedScene" uid="uid://bgujgvo1kdmvi" path="res://ImportMesh/Door1.glb" id="4_mudca"]
 [ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu.tscn" id="5_pause"]
 [ext_resource type="PackedScene" uid="uid://bgujgvo1kdmvi" path="res://ImportMesh/Door1.glb" id="6_gtqnl"]
+[ext_resource type="PackedScene" uid="uid://djndr5cao1bgb" path="res://Objects/widow.tscn" id="7_4hfbm"]
+[ext_resource type="Resource" uid="uid://c1t75migg5wqp" path="res://Resources/Dialogue/Widow1.dialogue" id="8_gtqnl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_536u3"]
 albedo_color = Color(0.87100744, 0, 0.030051686, 1)
@@ -32,7 +32,7 @@ albedo_color = Color(0.31250012, 0.25, 1, 1)
 
 [node name="OfficialScene2LivingRoom" type="Node3D" unique_id=1170453821]
 
-[node name="PauseMenu" parent="." unique_id=145814170 instance=ExtResource("1_4vrom")]
+[node name="PauseMenu" parent="." unique_id=145814170 instance=ExtResource("5_pause")]
 
 [node name="EvidenceMenu" parent="." unique_id=1035409026 instance=ExtResource("2_4hfbm")]
 
@@ -153,7 +153,7 @@ size = Vector3(5, 5.783, 5)
 material = SubResource("StandardMaterial3D_4hfbm")
 
 [node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_536u3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.785717, 2.4565692, 22.673471)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0640163, 2.4565692, 30.45017)
 base_speed = 20.0
 
 [node name="LivingRoom" parent="." unique_id=1935214523 instance=ExtResource("2_r0t11")]
@@ -184,18 +184,22 @@ light_energy = 10.407
 light_size = 0.181
 omni_range = 31.361614
 
-[node name="Door1" parent="." unique_id=1604581266 instance=ExtResource("4_mudca")]
+[node name="Door1" parent="." unique_id=1604581266 instance=ExtResource("6_gtqnl")]
 transform = Transform3D(-0.002222131, 0, -0.99999636, 0, 0.6161804, 0, 0.8267281, 0, -0.0026878524, 74.89291, 2.034326, 21.762627)
 
 [node name="InvisibleDoor2" parent="." unique_id=1099428959 instance=ExtResource("3_7mmli")]
 transform = Transform3D(-0.025141923, 0, -7.1183925, 0, -13.719, 0, 8.23161, 0, -0.02174181, 22.701069, 7.7347326, 24.344685)
 target_scene = "uid://dsgffn5q3isks"
 
-[node name="Door2" parent="." unique_id=857555672 instance=ExtResource("4_mudca")]
+[node name="Door2" parent="." unique_id=857555672 instance=ExtResource("6_gtqnl")]
 transform = Transform3D(-0.8267259, 0, 0.0035255752, 0, 0.61618036, 0, -0.0029147025, 0, -0.9999936, -0.8239002, 2.034326, 83.04997)
 
 [node name="InvisibleDoor3" parent="." unique_id=187185103 instance=ExtResource("3_7mmli")]
 transform = Transform3D(-0.025141923, 0, -7.1183925, 0, -13.719, 0, 8.23161, 0, -0.02174181, -3.7257824, 7.7347326, 33.22103)
 target_scene = "uid://dmpdoa0yn5t3y"
 
-[node name="PauseMenu" parent="." instance=ExtResource("5_pause")]
+[node name="PauseMenu2" parent="." unique_id=1823347202 instance=ExtResource("5_pause")]
+
+[node name="Widow" parent="." unique_id=1457784907 instance=ExtResource("7_4hfbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.774155, 2.7855477, -31.09066)
+dialogue_resource = ExtResource("8_gtqnl")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgg5oxfoqrg4i" path="res://Scripts/player_controller.gd" id="1_xy3dy"]
 [ext_resource type="PackedScene" uid="uid://b080ho8bv4frk" path="res://ImportMesh/Detective/detective.gltf" id="2_xy3dy"]
-[ext_resource type="Shader" uid="uid://r1blvup30fta" path="res://Resources/pixelization.gdshader" id="3_pixel"]
+[ext_resource type="Shader" path="res://Resources/pixelization.gdshader" id="3_pixel"]
 [ext_resource type="AudioStream" uid="uid://c7i2xdlft5xjv" path="res://Resources/walking_sound.mp3" id="4_d0k3e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pixel"]
@@ -23,7 +23,7 @@ input_forward = "move_up"
 input_back = "move_down"
 
 [node name="Head" type="Node3D" parent="." unique_id=1417715906]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.684995, -0.71618193)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.661118, -0.71618193)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1663374707]
 transform = Transform3D(1, 0, 0, 0, 0.9995336, 0.03053856, 0, -0.03053856, 0.9995336, 0, -0.14442396, -0.21334362)

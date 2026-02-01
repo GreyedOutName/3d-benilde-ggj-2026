@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://dmpdoa0yn5t3y"]
 
 [ext_resource type="Texture2D" uid="uid://d0k0p1kitq03r" path="res://Resources/dikhololo_night_4k.hdr" id="1_1r5xs"]
-[ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu.tscn" id="1_085bc"]
 [ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_q42p8"]
 [ext_resource type="PackedScene" uid="uid://dsl6f1nol80jc" path="res://Objects/evidence_menu.tscn" id="2_3i3po"]
 [ext_resource type="PackedScene" uid="uid://b8w5b6qlyxqp1" path="res://ImportMesh/FrontDoor/FrontDoor.glb" id="2_mag7p"]
 [ext_resource type="PackedScene" uid="uid://co1ldhqi0gf05" path="res://Objects/invisible_door.tscn" id="4_0kdx7"]
-[ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu.tscn" id="5_pause"]
 [ext_resource type="PackedScene" uid="uid://x65u22tikipl" path="res://Objects/Butler.tscn" id="5_7r2cr"]
+[ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu.tscn" id="5_pause"]
 [ext_resource type="Resource" uid="uid://ddtfyovr3x73u" path="res://Resources/Dialogue/Butler1.dialogue" id="6_snl8k"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0kdx7"]
@@ -26,7 +25,7 @@ glow_enabled = true
 
 [node name="OfficialScene1FrontDoor" type="Node3D" unique_id=201221471]
 
-[node name="PauseMenu" parent="." unique_id=145814170 instance=ExtResource("1_085bc")]
+[node name="PauseMenu" parent="." unique_id=145814170 instance=ExtResource("5_pause")]
 
 [node name="EvidenceMenu" parent="." unique_id=1035409026 instance=ExtResource("2_3i3po")]
 
@@ -39,7 +38,7 @@ light_color = Color(0.3960602, 0.48122293, 0.43292844, 1)
 shadow_enabled = true
 
 [node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_q42p8")]
-transform = Transform3D(-0.99998826, 0, -0.00485195, 0, 1, 0, 0.00485195, 0, -0.99998826, 0.007898331, 1.8816051, 21.758022)
+transform = Transform3D(-0.99998826, 0, -0.00485195, 0, 1, 0, 0.00485195, 0, -0.99998826, 0.007898331, 1.8816051, -36.558365)
 can_jump = false
 base_speed = 20.0
 
@@ -73,7 +72,8 @@ size = Vector3(1.0216064, 1, 1)
 transform = Transform3D(15.950132, 0, 0, 0, 9.967469, 0, 0, 0, 8.811678, -1.8810315, 9.7200165, 44.850563)
 target_scene = "uid://chfelwcgwtn2g"
 
-[node name="PauseMenu" parent="." instance=ExtResource("5_pause")]
+[node name="PauseMenu2" parent="." unique_id=1399130592 instance=ExtResource("5_pause")]
+
 [node name="Butler" parent="." unique_id=1457784907 instance=ExtResource("5_7r2cr")]
 transform = Transform3D(-0.7123691, 0, -0.70180506, 0, 1, 0, 0.70180506, 0, -0.7123691, 7.5211315, 2.012601, 38.23149)
 dialogue_resource = ExtResource("6_snl8k")

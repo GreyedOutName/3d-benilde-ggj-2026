@@ -14,27 +14,32 @@ The Widow: There is nothing of interest.
 The Widow: My husband, bless his soul, but he is in death as he is in life.
 The Widow: Wholly disappointing.
 - A bit harsh don't you think?
-	do EventHandler.change_mask("Widow",'red')
-   The Widow: Haumph!
-   The Widow: Was it fair that he left me miserly caring for his son?
-   The Widow: That I, lady of the classics, of genuine academia , be stuck behind a shadow of a gambler?
-   The Widow: A gambler who left me his useless son, who's now going to throw me out of my own home.
-   The Widow: The Lot of them! I swear I... I...
-   The Widow: Leave me. And be quick.
+	=> hostile
+- I see.
+	=> friendly
+
+~ hostile
+do EventHandler.change_mask("Widow",'red')
+The Widow: Haumph!
+The Widow: Was it fair that he left me miserly caring for his son?
+The Widow: That I, lady of the classics, of genuine academia , be stuck behind a shadow of a gambler?
+The Widow: A gambler who left me his useless son, who's now going to throw me out of my own home.
+The Widow: The Lot of them! I swear I... I...
+The Widow: Leave me. And be quick.
 => END
 
-- I see. (blue)
-	do EventHandler.change_mask("Widow",'blue')
-   The Widow: Leave me to grieve, detective.
-   The Widow: Just for a few minutes more, that's all I got for him
-   The Widow: I'll answer your questions later.
+~ friendly
+do EventHandler.change_mask("Widow",'blue')
+The Widow: Leave me to grieve, detective.
+The Widow: Just for a few minutes more, that's all I got for him.
+The Widow: I'll answer your questions later.
 => END
 
 ~repeat
 The Widow: Upstairs, detective.
 => END
 
-~ no_key if_blue
+~ no_key_if_blue
 The Widow: Dilly dallying in my house, detective?
 - No, the door to bedroom was locked.
    The Widow: Is it now?
@@ -43,17 +48,17 @@ The Widow: Dilly dallying in my house, detective?
    The Widow: I'm sure he's so ecstatic being the man of the house now.
 =>END
 
-~ no_key if_red
+~ no_key_if_red
 The Widow: What is it?
 - The door...seems be locked.
 The Widow: I'm sure you'll find a way.
 - But-
 =>END
 
-~ repeat if red
+~ repeat_if_red
 The Widow: Leave me be.
 => END
 
-~ repeat if blue
+~ repeat_if_blue
 The Widow: If I had to guess, he's in the study.
 => END
