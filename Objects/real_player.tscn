@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://44d0atkgocpr"]
 
 [ext_resource type="Script" uid="uid://bgg5oxfoqrg4i" path="res://Scripts/player_controller.gd" id="1_xy3dy"]
-[ext_resource type="Shader" uid="uid://r1blvup30fta" path="res://Resources/pixelization.gdshader" id="2_qvjtn"]
-[ext_resource type="PackedScene" uid="uid://eot67sn8sc12" path="res://ImportMesh/leave_this_be.glb" id="2_xy3dy"]
+[ext_resource type="PackedScene" uid="uid://b080ho8bv4frk" path="res://ImportMesh/Detective/detective.gltf" id="2_xy3dy"]
+[ext_resource type="Shader" uid="uid://r1blvup30fta" path="res://Resources/pixelization.gdshader" id="3_pixel"]
 [ext_resource type="AudioStream" uid="uid://c7i2xdlft5xjv" path="res://Resources/walking_sound.mp3" id="4_d0k3e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pixel"]
-shader = ExtResource("2_qvjtn")
-shader_parameter/pixel_size = 4.0
-[ext_resource type="PackedScene" uid="uid://b080ho8bv4frk" path="res://ImportMesh/Detective/detective.gltf" id="2_xy3dy"]
+resource_local_to_scene = true
+shader = ExtResource("3_pixel")
+shader_parameter/pixel_size = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0k3e"]
 radius = 0.9
@@ -35,7 +35,7 @@ collision_mask = 0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1938475062]
 
-[node name="PixelFilter" type="ColorRect" parent="UI" unique_id=384990794]
+[node name="PixelFilter" type="ColorRect" parent="UI" unique_id=811016200]
 material = SubResource("ShaderMaterial_pixel")
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,11 +79,11 @@ vertical_alignment = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.855956, 0)
 shape = SubResource("CapsuleShape3D_d0k3e")
 
-[node name="leave_this_be" parent="." unique_id=1819775504 instance=ExtResource("2_xy3dy")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+[node name="detective" parent="." unique_id=1039802829 instance=ExtResource("2_xy3dy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.46020985, 0)
 
-[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=10578875]
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=2011136458]
 stream = ExtResource("4_d0k3e")
-volume_db = 6.465
+volume_db = 27.475
 max_db = 6.0
 max_distance = 20.0
