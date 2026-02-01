@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://g3ripqsm6ymm"]
 
+[ext_resource type="Texture2D" uid="uid://dip0a2yvr4wm8" path="res://Resources/main_menu_bg.png" id="1_3es34"]
 [ext_resource type="Theme" uid="uid://cwgop7g63arha" path="res://Resources/UI/Theme and Stylebox/title.tres" id="1_jy27m"]
 [ext_resource type="Theme" uid="uid://0jr8e3io765s" path="res://Resources/UI/Theme and Stylebox/menu_button.tres" id="2_3es34"]
 
@@ -8,7 +9,7 @@ script/source = "extends Node2D
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://Levels/main.tscn\")
+	get_tree().change_scene_to_file(\"res://Levels/Official_Scene_1_FrontDoor.tscn\")
 
 
 func _on_load_game_pressed() -> void:
@@ -22,11 +23,23 @@ func _on_quit_pressed() -> void:
 [node name="MainMenu" type="Node2D" unique_id=1203021763]
 script = SubResource("GDScript_351dl")
 
+[node name="Background" type="TextureRect" parent="." unique_id=1750283947]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3es34")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Label" type="Label" parent="." unique_id=1861710631]
 offset_left = 144.0
-offset_top = 240.0
+offset_top = 176.0
 offset_right = 1018.0
-offset_bottom = 361.0
+offset_bottom = 297.0
 size_flags_horizontal = 4
 theme = ExtResource("1_jy27m")
 text = "Masks of Reflection"
@@ -41,27 +54,20 @@ theme = ExtResource("2_3es34")
 [node name="Start" type="Button" parent="ButtonManager" unique_id=920819383]
 layout_mode = 0
 offset_left = 448.0
-offset_top = 384.0
+offset_top = 392.0
 offset_right = 704.0
-offset_bottom = 434.0
+offset_bottom = 442.0
+theme_override_constants/outline_size = 3
 text = "Start"
 
-[node name="Load Game" type="Button" parent="ButtonManager" unique_id=219379716]
+[node name="Quit" type="Button" parent="ButtonManager" unique_id=1494280208]
 layout_mode = 0
 offset_left = 448.0
 offset_top = 448.0
 offset_right = 704.0
 offset_bottom = 498.0
-text = "Load Game"
-
-[node name="Quit" type="Button" parent="ButtonManager" unique_id=1494280208]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 512.0
-offset_right = 704.0
-offset_bottom = 562.0
+theme_override_constants/outline_size = 3
 text = "Quit"
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="ButtonManager/Load Game" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]

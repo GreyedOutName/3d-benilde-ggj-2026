@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_q42p8"]
 [ext_resource type="PackedScene" uid="uid://b8w5b6qlyxqp1" path="res://ImportMesh/FrontDoor/FrontDoor.glb" id="2_mag7p"]
 [ext_resource type="PackedScene" uid="uid://co1ldhqi0gf05" path="res://Objects/invisible_door.tscn" id="4_0kdx7"]
+[ext_resource type="PackedScene" uid="uid://le22nwymt13w" path="res://Levels/pause_menu.tscn" id="5_pause"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0kdx7"]
 panorama = ExtResource("1_1r5xs")
@@ -63,3 +64,5 @@ size = Vector3(1.0216064, 1, 1)
 [node name="InvisibleDoor" parent="." unique_id=857000136 instance=ExtResource("4_0kdx7")]
 transform = Transform3D(15.950132, 0, 0, 0, 9.967469, 0, 0, 0, 8.811678, -1.8810315, 9.7200165, 44.850563)
 target_scene = "uid://chfelwcgwtn2g"
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_pause")]

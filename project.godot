@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3D-Benilde-GGJ-2026"
-run/main_scene="uid://dmpdoa0yn5t3y"
+run/main_scene="uid://g3ripqsm6ymm"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,7 @@ DialogueManager="*uid://c3rodes2l3gxb"
 GlobalSignals="*uid://cbilrlm0u2t6m"
 EventHandler="*uid://n8helmvfcgax"
 EvidenceManager="*uid://h36mrm2eujum"
+GlobalTheme="*uid://11mi4tfhvt4c"
 
 [dialogue_manager]
 
