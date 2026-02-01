@@ -1,6 +1,36 @@
 [gd_scene format=3 uid="uid://dg8kqt02wdc73"]
 
+[ext_resource type="Texture2D" uid="uid://d0k0p1kitq03r" path="res://Resources/dikhololo_night_4k.hdr" id="1_5oixu"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Objects/player.tscn" id="1_ksfhx"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_pp8g6"]
+panorama = ExtResource("1_5oixu")
+energy_multiplier = 0.16
+
+[sub_resource type="Sky" id="Sky_5oixu"]
+sky_material = SubResource("PanoramaSkyMaterial_pp8g6")
+
+[sub_resource type="Environment" id="Environment_pp8g6"]
+background_mode = 2
+sky = SubResource("Sky_5oixu")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgli7"]
+metallic = 0.95
+metallic_specular = 0.0
+metallic_texture_channel = 1
+
 [node name="LightingTest" type="Node3D" unique_id=1458180345]
+transform = Transform3D(0.9995085, 0.005193839, -0.030916307, -0.0046262154, 0.99981993, 0.018402878, 0.031006325, -0.018250804, 0.9993525, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2013895656]
+environment = SubResource("Environment_pp8g6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=900057663]
+transform = Transform3D(0.6187376, -0.6803476, 0.3927988, 2.7805946e-08, 0.49999994, 0.86602545, -0.7855978, -0.53584254, 0.30936873, 0, 10.141674, 5.446354)
+light_color = Color(0, 0, 0, 1)
+shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1734205258]
 transform = Transform3D(30.971693, 0, 0, 0, 1, 0, 0, 0, 31.201468, 0, -1.252475, 0)
@@ -8,21 +38,60 @@ use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=219342000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.1176858, 3.9848166, 0.7368231, -0.20298505)
+use_collision = true
 size = Vector3(0.4248047, 3.1020508, 5.462097)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1242112643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.765697, -9.478344, 0.6807673, -0.8447002)
+use_collision = true
 size = Vector3(0.4248047, 3.1020508, 9.582275)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1408600400]
 transform = Transform3D(-0.0055326377, 0, -3.117638, 0, 1, 0, 0.9999847, 0, -0.017249025, -3.1143603, 0.5659752, -8.515697)
+use_collision = true
 size = Vector3(0.4248047, 3.1020508, 5.462097)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1683982763]
-transform = Transform3D(-0.009267598, 0, 3.117552, 0, 1, 0, -0.9999571, 0, -0.02889346, -3.3172603, 0.8695903, 5.9442406)
-size = Vector3(0.4248047, 3.1020508, 5.462097)
-
-[node name="Floor2" type="CSGBox3D" parent="." unique_id=474788834]
+[node name="roof" type="CSGBox3D" parent="." unique_id=474788834]
 transform = Transform3D(17.385502, 0, 0, 0, 0.38756195, 0, 0, 0, 17.514482, 0.15296602, 2.1228378, -0.61187947)
+visible = false
 use_collision = true
 size = Vector3(0.6425781, 1, 1)
+
+[node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_ksfhx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8495183, -0.7524748, -3.916376)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=50092746]
+transform = Transform3D(0.9999997, -5.820766e-11, 0, -9.313226e-10, 1, 1.8626451e-09, -9.313226e-09, 0, 0.9999997, 0.9365042, 2.1343253, -0.14207031)
+visible = false
+radius = 0.3277999
+smooth_faces = false
+material = SubResource("StandardMaterial3D_xgli7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=445061062]
+transform = Transform3D(0.99999994, -9.720679e-09, 2.7939677e-08, -3.8999133e-09, 1, -2.2351742e-08, -3.1664968e-08, 2.0489097e-08, 1, 0.92635655, 1.800142, -0.1376099)
+visible = false
+light_color = Color(0.9137255, 0.8784314, 0.7882353, 1)
+light_energy = 2.055
+light_indirect_energy = 0.0
+light_size = 0.11
+light_specular = 0.764
+omni_range = 17.174
+omni_shadow_mode = 0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1298618037]
+transform = Transform3D(0.99999964, -5.820766e-11, 0, -8.731149e-10, 1, 1.8626451e-09, -1.1175871e-08, 0, 0.99999964, 1.0614156, 2.0608003, 3.8839002)
+radius = 0.3277999
+smooth_faces = false
+material = SubResource("StandardMaterial3D_xgli7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1790445047]
+transform = Transform3D(0.9990093, -0.025682464, -0.036342323, 0.03614817, -0.007983701, 0.99931455, -0.025955012, -0.99963826, -0.007047422, 0.9990256, 9.462738, 2.3601356)
+light_color = Color(0.89411765, 0.4392157, 0.14509805, 1)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.635
+spot_range = 21.690474
+spot_angle = 72.94525
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SpotLight3D" unique_id=1820170653]
+transform = Transform3D(-0.98964334, -0.012490923, 0.14300406, -0.0049231593, 0.9985744, 0.053151935, -0.143464, 0.051897436, -0.988294, 0.6531955, -6.291885, -0.1856556)

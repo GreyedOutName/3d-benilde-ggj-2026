@@ -215,9 +215,9 @@ func check_input_mappings():
 func check_interaction():
 	if not interaction_ray:
 		return
-	# Skip raycast check if we already have an interactable from Area3D (like NPC)
-	# This prevents the raycast from overriding NPC interaction prompts
-	if current_interactable and current_interactable.is_in_group("npc"):
+	# Skip raycast check if we already have an interactable from Area3D (like NPC or door)
+	# This prevents the raycast from overriding interaction prompts
+	if current_interactable and (current_interactable.is_in_group("npc") or current_interactable.is_in_group("door")):
 		return
 	
 	if interaction_ray.is_colliding():
