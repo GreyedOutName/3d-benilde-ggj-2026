@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cmm46qfu3i63p"]
+
+[ext_resource type="Texture2D" uid="uid://d0k0p1kitq03r" path="res://Resources/dikhololo_night_4k.hdr" id="1_xnt30"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rlx4v"]
+panorama = ExtResource("1_xnt30")
+energy_multiplier = 0.2
+
+[sub_resource type="Sky" id="Sky_7r2cr"]
+sky_material = SubResource("PanoramaSkyMaterial_rlx4v")
+
+[sub_resource type="Environment" id="Environment_5um6v"]
+background_mode = 2
+background_energy_multiplier = 0.05
+sky = SubResource("Sky_7r2cr")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Prologue" type="Node3D" unique_id=273630731]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1827656657]
+environment = SubResource("Environment_5um6v")

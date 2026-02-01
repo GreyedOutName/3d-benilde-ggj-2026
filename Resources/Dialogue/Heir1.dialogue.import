@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bv3ano5j8jw0q"
+path="res://.godot/imported/Heir1.dialogue-ca1711dec005f816f8762a8b246ee0ac.tres"
+
+[deps]
+
+source_file="res://Resources/Dialogue/Heir1.dialogue"
+dest_files=["res://.godot/imported/Heir1.dialogue-ca1711dec005f816f8762a8b246ee0ac.tres"]
+
+[params]
+
+defaults=true

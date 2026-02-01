@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_8745t"]
 
 [node name="InvisibleDoor" type="Node3D" unique_id=857000136]
-transform = Transform3D(3.1145508, 0, 0, 0, 4.2023892, 0, 0, 0, 0.3412643, 0.017715782, 2.1361032, 0)
+transform = Transform3D(3.1145508, 0, 0, 0, 4.2023892, 0, 0, 0, 0.3412643, 0, 0, 0)
 script = ExtResource("1_72iyt")
 door_sound = ExtResource("2_8745t")
 
