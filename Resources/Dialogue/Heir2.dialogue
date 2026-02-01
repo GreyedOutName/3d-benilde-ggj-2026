@@ -1,0 +1,25 @@
+~ start
+if locals.has_already_talked == false:
+	=> normal
+else:
+	=> repeat
+
+~ normal
+The Heir: I locked them.
+The Heir: I had to give you an excuse to meet me without my mother in earshot.
+- For what purpose?
+     The Heir: What else, but to catch the killer of course!
+     The Heir: That would be my mother. Or Butler, though I doubt he has the gumption to kill a man.
+     The Heir: My dear mother would be the prime suspect.
+- This is a grave accusation, do you have any proof?
+	The Heir: I suppose I don't. Yet, after seeing the body myself, Mr. Detective...
+	The Heir: There is foul play afoot here.
+	The Heir: Here, Mr.Detective -the master key.
+	do EvidenceManager.has_key = true
+	The Heir: Do prove my mother's wrong doing.
+	set locals.has_already_talked = true
+=> END
+
+~ repeat
+The Heir: Go see the body.
+=> END

@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://44d0atkgocpr"]
 
 [ext_resource type="Script" uid="uid://bgg5oxfoqrg4i" path="res://Scripts/player_controller.gd" id="1_xy3dy"]
-[ext_resource type="PackedScene" uid="uid://eot67sn8sc12" path="res://ImportMesh/leave_this_be.glb" id="2_xy3dy"]
+[ext_resource type="PackedScene" uid="uid://b080ho8bv4frk" path="res://ImportMesh/Detective/detective.gltf" id="2_xy3dy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0k3e"]
-radius = 0.818
+radius = 0.9
 height = 10.0
 
 [node name="player" type="CharacterBody3D" unique_id=1524182027]
+floor_max_angle = 1.2217305
 script = ExtResource("1_xy3dy")
 input_left = "move_left"
 input_right = "move_right"
@@ -22,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9995336, 0.03053856, 0, -0.03053856, 0.999
 
 [node name="InteractionRay" type="RayCast3D" parent="Head" unique_id=1827364951]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16181064, 0)
-target_position = Vector3(0, 0, -10)
+target_position = Vector3(0, 0, -20)
 collision_mask = 0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1938475062]
@@ -59,8 +60,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1302230705]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5611916, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.855956, 0)
 shape = SubResource("CapsuleShape3D_d0k3e")
 
-[node name="leave_this_be" parent="." unique_id=1819775504 instance=ExtResource("2_xy3dy")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+[node name="detective" parent="." unique_id=1039802829 instance=ExtResource("2_xy3dy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.46020985, 0)
