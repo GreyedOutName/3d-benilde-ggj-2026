@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://co1ldhqi0gf05"]
+
+[ext_resource type="Script" uid="uid://b7eyv5mel7ogw" path="res://Scripts/invisible_door.gd" id="1_72iyt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8745t"]
+
+[node name="InvisibleDoor" type="Node3D" unique_id=857000136]
+transform = Transform3D(3.1145508, 0, 0, 0, 4.2023892, 0, 0, 0, 0.3412643, 0.017715782, 2.1361032, 0)
+script = ExtResource("1_72iyt")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1644187482]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2075195854]
+shape = SubResource("BoxShape3D_8745t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=668898547]

@@ -1,11 +1,65 @@
 [gd_scene format=3 uid="uid://dmpdoa0yn5t3y"]
 
+[ext_resource type="Texture2D" uid="uid://d0k0p1kitq03r" path="res://Resources/dikhololo_night_4k.hdr" id="1_1r5xs"]
 [ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_q42p8"]
 [ext_resource type="PackedScene" uid="uid://b8w5b6qlyxqp1" path="res://ImportMesh/FrontDoor/FrontDoor.glb" id="2_mag7p"]
+[ext_resource type="PackedScene" uid="uid://co1ldhqi0gf05" path="res://Objects/invisible_door.tscn" id="4_0kdx7"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0kdx7"]
+panorama = ExtResource("1_1r5xs")
+energy_multiplier = 0.2
+
+[sub_resource type="Sky" id="Sky_7r2cr"]
+sky_material = SubResource("PanoramaSkyMaterial_0kdx7")
+
+[sub_resource type="Environment" id="Environment_snl8k"]
+background_mode = 2
+background_energy_multiplier = 0.05
+sky = SubResource("Sky_7r2cr")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="OfficialScene1FrontDoor" type="Node3D" unique_id=201221471]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1146830738]
+environment = SubResource("Environment_snl8k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1041982599]
+transform = Transform3D(-0.5382131, 0.37559405, -0.7544904, -0.28058487, 0.7642929, 0.58062786, 0.7947319, 0.52419996, -0.30596626, 0, 77.23673, 0)
+light_color = Color(0.3960602, 0.48122293, 0.43292844, 1)
+shadow_enabled = true
+
 [node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_q42p8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007898331, 1.9785604, -32.994865)
+transform = Transform3D(-0.99998826, 0, -0.00485195, 0, 1, 0, 0.00485195, 0, -0.99998826, 0.007898331, 1.9785604, -32.994865)
+can_jump = false
+base_speed = 20.0
 
 [node name="FrontDoor" parent="." unique_id=1640853784 instance=ExtResource("2_mag7p")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=523573715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.703421, 14.179476, 47.588154)
+light_color = Color(0.89411765, 0.4392157, 0.14509805, 1)
+light_energy = 16.0
+omni_range = 16.899279
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1438936318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.636063, 14.179476, 47.588154)
+light_color = Color(0.89411765, 0.4392157, 0.14509805, 1)
+light_energy = 16.0
+omni_range = 16.899279
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=549235673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3123536, 18.038406, 40.775215)
+light_color = Color(1, 0.9607843, 0.7137255, 1)
+light_energy = 3.779
+omni_range = 31.596102
+
+[node name="door_collision" type="CSGBox3D" parent="." unique_id=673191520]
+transform = Transform3D(13.730649, 0, 0, 0, 17.799612, 0, 0, 0, -2.7494924, -0.06013812, 10.239195, 47.347042)
+visible = false
+use_collision = true
+size = Vector3(1.0216064, 1, 1)
+
+[node name="InvisibleDoor" parent="." unique_id=857000136 instance=ExtResource("4_0kdx7")]
+transform = Transform3D(15.950132, 0, 0, 0, 9.967469, 0, 0, 0, 8.811678, -1.8810315, 9.7200165, 44.850563)
+target_scene = "uid://chfelwcgwtn2g"

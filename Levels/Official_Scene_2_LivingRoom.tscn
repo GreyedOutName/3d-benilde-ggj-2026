@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://44d0atkgocpr" path="res://Objects/real_player.tscn" id="1_536u3"]
 [ext_resource type="PackedScene" uid="uid://e25vuoj7ldrm" path="res://ImportMesh/Living Room/LivingRoom.glb" id="2_r0t11"]
+[ext_resource type="PackedScene" uid="uid://co1ldhqi0gf05" path="res://Objects/invisible_door.tscn" id="3_7mmli"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_536u3"]
 albedo_color = Color(0.87100744, 0, 0.030051686, 1)
@@ -57,12 +58,11 @@ size = Vector3(56, 18, 1)
 
 [node name="Roof" type="CSGBox3D" parent="BasicGeometry/CSGCombiner3D" unique_id=1243469309]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
-visible = false
 use_collision = true
 size = Vector3(56, 2, 70)
 
 [node name="Door" type="CSGBox3D" parent="BasicGeometry/CSGCombiner3D" unique_id=2094274643]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 34)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 34.54777)
 size = Vector3(14, 19.005, 1)
 material = SubResource("StandardMaterial3D_536u3")
 
@@ -144,7 +144,26 @@ size = Vector3(5, 5.783, 5)
 material = SubResource("StandardMaterial3D_4hfbm")
 
 [node name="player" parent="." unique_id=1524182027 instance=ExtResource("1_536u3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.785717, 1.021317, 13.711159)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.785717, 2.4565692, 28.898762)
+base_speed = 20.0
 
 [node name="LivingRoom" parent="." unique_id=1935214523 instance=ExtResource("2_r0t11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47653913, 1.184103, -1.1484814)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44926405, 1.1543074, -1.1364794)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1862966433]
+transform = Transform3D(0.082773365, 0, -0.99656844, -0.05799153, -0.99830544, -0.0048166835, -0.99487966, 0.05819122, -0.08263311, -1.2238474, 17.49243, 15.57736)
+light_color = Color(1, 0.9607843, 0.7137255, 1)
+light_energy = 10.407
+light_size = 0.181
+omni_range = 31.361614
+
+[node name="InvisibleDoor" parent="." unique_id=857000136 instance=ExtResource("3_7mmli")]
+transform = Transform3D(0.7194693, 0, -6.059865, 0, 15.060931, 0, 8.662211, 0, 0.5033226, 4.476042, 9.029356, -30.309465)
+target_scene = "uid://d2sdycfsjr3u2"
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=528581473]
+transform = Transform3D(0.082773365, 0, -0.99656844, -0.05799153, -0.9983055, -0.0048166835, -0.99487966, 0.058191225, -0.08263311, -12.799954, 17.23857, -34.647804)
+light_color = Color(0.9923132, 0.7274181, 0.5900502, 1)
+light_energy = 10.407
+light_size = 0.181
+omni_range = 31.361614

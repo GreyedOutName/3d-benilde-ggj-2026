@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3D-Benilde-GGJ-2026"
-run/main_scene="uid://bsm80tlddblor"
+run/main_scene="uid://dmpdoa0yn5t3y"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
