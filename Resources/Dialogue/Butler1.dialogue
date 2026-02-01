@@ -1,5 +1,5 @@
 ~ start
-if locals.has_already_talked == false:
+if EvidenceManager.butler1_talked == false:
 	=> a
 else:
 	=> repeat
@@ -24,7 +24,8 @@ The Butler: Good morning detective. Your early arrival is most auspicious.
 	=> continue
 	
 ~ repeat
-	The Butler: Upstairs, sir, the body...
+The Butler: Upstairs, sir, the body...
+=> END
 	
 ~ continue
 - Who's also here in the premises?
@@ -39,10 +40,10 @@ The Butler: Good morning detective. Your early arrival is most auspicious.
 			- The family doesnt get along?
 				The Butler: It's not my place to say sir.
 				The Butler: Please, sir, we are grieving, all in our own way.
-				set locals.has_already_talked == true
+				set EvidenceManager.butler1_talked = true
 				=> END
 	elif EvidenceManager.NPC_State["Butler"]=="yellow":
 		The Butler: You'll see them shortly...
 		The Butler: Enter the premises sir. Upstairs, the body...
-		set locals.has_already_talked == true
-	=> END
+		set EvidenceManager.butler1_talked = true
+		=> END

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c1t75migg5wqp"
+path="res://.godot/imported/Widow1.dialogue-a0606ac31f4810a0647b94c2386e50d0.tres"
+
+[deps]
+
+source_file="res://Resources/Dialogue/Widow1.dialogue"
+dest_files=["res://.godot/imported/Widow1.dialogue-a0606ac31f4810a0647b94c2386e50d0.tres"]
+
+[params]
+
+defaults=true
