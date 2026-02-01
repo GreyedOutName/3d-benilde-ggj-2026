@@ -69,3 +69,6 @@ var NPC_State:Dictionary={
 }
 
 var has_key = false
+var butler1_talked = false
+var heir1_talked = false
+var widow1_talked = false
