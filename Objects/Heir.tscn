@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cxw5vgvyyvqmx"]
+
+[ext_resource type="Script" uid="uid://bnnapkey0e4oe" path="res://Scripts/npc.gd" id="1_3liy0"]
+[ext_resource type="PackedScene" uid="uid://hprsxppwnb0x" path="res://Nodes/dialogue_handler.tscn" id="2_meabr"]
+[ext_resource type="PackedScene" uid="uid://gmsa3t8xxxql" path="res://ImportMesh/Butler/butler_w_texture.gltf" id="3_2g6aq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_npc"]
+size = Vector3(2.613, 13.171, 10.376)
+
+[node name="Heir" type="Node3D" unique_id=1457784907]
+script = ExtResource("1_3liy0")
+NPC_name = "Heir"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1997287502]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1805161710]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 5.7205253, 2.4928467)
+shape = SubResource("BoxShape3D_npc")
+
+[node name="dialogue_handler" parent="." unique_id=783370779 instance=ExtResource("2_meabr")]
+
+[node name="mesh" parent="." unique_id=2087198902 instance=ExtResource("3_2g6aq")]
+
+[editable path="mesh"]

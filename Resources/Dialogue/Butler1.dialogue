@@ -1,4 +1,11 @@
 ~ start
+if locals.has_already_talked == false:
+	=> a
+else:
+	=> repeat
+	
+~ a
+do EventHandler.evidence_get(6,1)
 The Butler: Good morning detective. Your early arrival is most auspicious.
 - Is the body unmoved?
 	The Butler: Just so. You'll find it upstairs in the bedroom. I must warn you, once you enter the premises, I cannot let you leave.
@@ -16,16 +23,26 @@ The Butler: Good morning detective. Your early arrival is most auspicious.
 	do EventHandler.change_mask("Butler","yellow")
 	=> continue
 	
+~ repeat
+	The Butler: Upstairs, sir, the body...
+	
 ~ continue
 - Who's also here in the premises?
 	if EvidenceManager.NPC_State["Butler"]=="blue":
 		The Butler: The old master's wife and lad sir.
+		do EventHandler.evidence_get(3,1)
+		do EventHandler.evidence_get(4,1)
+		do EventHandler.evidence_get(8,1)
+		do EventHandler.evidence_get(9,1)
 		- Such a big house for three.
 			The Butler: Four sir, including me, and believe me, any smaller than this and there will be hell to pay for.
-		- The family doesnt get along?
-			The Butler: It's not my place to say sir.
-			The Butler: Please, sir, we are grieving, all in our own way.
+			- The family doesnt get along?
+				The Butler: It's not my place to say sir.
+				The Butler: Please, sir, we are grieving, all in our own way.
+				set locals.has_already_talked == true
+				=> END
 	elif EvidenceManager.NPC_State["Butler"]=="yellow":
 		The Butler: You'll see them shortly...
 		The Butler: Enter the premises sir. Upstairs, the body...
+		set locals.has_already_talked == true
 	=> END
