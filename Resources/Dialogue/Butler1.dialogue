@@ -1,0 +1,31 @@
+~ start
+The Butler: Good morning detective. Your early arrival is most auspicious.
+- Is the body unmoved?
+	The Butler: Just so. You'll find it upstairs in the bedroom. I must warn you, once you enter the premises, I cannot let you leave.
+	=> e
+
+~ e
+- And why?
+	The Butler: Coyotes, and worse, out there in the woods.
+	The Butler: You must wait 'till the next morning. 
+	do EventHandler.change_mask("Butler","blue")
+	=> continue
+- I'd advise you not to interfere with my business
+	The Butler: I mean you no offense sir. There are beasts in the woods at night.
+	The Butler: But if you insist.
+	do EventHandler.change_mask("Butler","yellow")
+	=> continue
+	
+~ continue
+- Who's also here in the premises?
+	if EvidenceManager.NPC_State["Butler"]=="blue":
+		The Butler: The old master's wife and lad sir.
+		- Such a big house for three.
+			The Butler: Four sir, including me, and believe me, any smaller than this and there will be hell to pay for.
+		- The family doesnt get along?
+			The Butler: It's not my place to say sir.
+			The Butler: Please, sir, we are grieving, all in our own way.
+	elif EvidenceManager.NPC_State["Butler"]=="yellow":
+		The Butler: You'll see them shortly...
+		The Butler: Enter the premises sir. Upstairs, the body...
+	=> END

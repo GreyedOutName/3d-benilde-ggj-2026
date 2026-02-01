@@ -63,3 +63,9 @@ var Inventory_State:Dictionary ={
 	"Ring":false,
 	"Note":false,
 }
+
+var NPC_State:Dictionary={
+	"Butler":"grey",
+	"Widow":"grey",
+	"Heir":"grey",
+}

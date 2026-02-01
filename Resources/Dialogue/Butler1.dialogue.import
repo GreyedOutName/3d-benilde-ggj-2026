@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ddtfyovr3x73u"
+path="res://.godot/imported/Butler1.dialogue-1b6f1180a0d7b70b3f8bb2d42a067797.tres"
+
+[deps]
+
+source_file="res://Resources/Dialogue/Butler1.dialogue"
+dest_files=["res://.godot/imported/Butler1.dialogue-1b6f1180a0d7b70b3f8bb2d42a067797.tres"]
+
+[params]
+
+defaults=true
