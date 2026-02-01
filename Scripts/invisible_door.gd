@@ -16,8 +16,15 @@ signal player_exited
 ## Optional: Custom interact prompt text.
 @export var interact_prompt: String = "Enter [E]"
 
+## Sound effect to play when using the door.
+@export var door_sound: AudioStream
+
+## Delay before scene transition (to let sound play).
+@export var transition_delay: float = 0.5
+
 ## Reference to the Area3D child node.
 @onready var interaction_area: Area3D = $Area3D
+@onready var door_audio: AudioStreamPlayer = $DoorAudio
 
 var player_in_range : bool = false
 var player_ref : Node = null
@@ -72,6 +79,13 @@ func interact() -> void:
 	if target_scene.is_empty():
 		push_warning("Door has no target scene set!")
 		return
+	
+	# Play door sound effect
+	if door_audio and door_sound:
+		door_audio.stream = door_sound
+		door_audio.play()
+		# Wait for delay before transitioning
+		await get_tree().create_timer(transition_delay).timeout
 	
 	# Change to the target scene
 	get_tree().change_scene_to_file(target_scene)

@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://co1ldhqi0gf05"]
 
 [ext_resource type="Script" uid="uid://b7eyv5mel7ogw" path="res://Scripts/invisible_door.gd" id="1_72iyt"]
+[ext_resource type="AudioStream" uid="uid://dttfivl67gus7" path="res://Resources/door_close.mp3" id="2_8745t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8745t"]
 
 [node name="InvisibleDoor" type="Node3D" unique_id=857000136]
 transform = Transform3D(3.1145508, 0, 0, 0, 4.2023892, 0, 0, 0, 0.3412643, 0.017715782, 2.1361032, 0)
 script = ExtResource("1_72iyt")
+door_sound = ExtResource("2_8745t")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1644187482]
 
@@ -14,3 +16,5 @@ script = ExtResource("1_72iyt")
 shape = SubResource("BoxShape3D_8745t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=668898547]
+
+[node name="DoorAudio" type="AudioStreamPlayer" parent="." unique_id=363009970]
