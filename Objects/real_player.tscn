@@ -8,7 +8,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pixel"]
 resource_local_to_scene = true
 shader = ExtResource("3_pixel")
-shader_parameter/pixel_size = 1.0
+shader_parameter/pixel_size = 2.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0k3e"]
 radius = 0.9
